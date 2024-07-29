@@ -3,17 +3,15 @@
 
 # Usage
 
-Refer to [Simulate Scenario documentation](https://github.com/fortinet-fortisoar/solution-pack-soc-simulator/blob/develop/docs/usage.md) to understand how to simulate and reset scenarios.
+OTbase Inventory Solution Packs helps in creation and management of Vulnerability found in OTbase Inventory Assets, by creating and linking CVEs and ICS Advisory to the respective Assets.
 
-To understand the process FortiSOAR follows to respond to <SP Specific threat>. We have included the following scenario with this solution pack:
-- Scenario 1
-- Scenario 2
+Whenever a new Asset is created Playbook OTbase Inventory > Create CVEs is triggered which automatically creates and links vulnerabilities (CVEs) found in that Asset.
 
-Refer to the subsequent sections to understand how this solution pack's automation addresses your needs.
+![](./res/Create%20CVE.png)
 
-## Scenario 1
+Similarly, Playbook OTbase Inventory > Link ICS Advisory to Assets is triggered automatically in case of new Asset of OTbase Inventory is created and links ICS Advisory based on Product and Vendor name found in that Asset.
 
-## Scenario 2
+![](./res/Link%20Advisory.png)
 
 # Next Steps
 | [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Contents](./contents.md) |

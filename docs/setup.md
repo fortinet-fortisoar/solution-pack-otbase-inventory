@@ -12,9 +12,9 @@
 The **OTbase Inventory** solution pack depends on the following solution packs that are installed automatically &ndash; if not already installed.
 | Solution Pack Name | Version | Purpose |
 | :--------------------- | :---------------------| :--------------------------------------- |
-| SOAR Framework |  |  |
-| Vulnerability Management |  |  |
-| OT - Vulnerability Management |  |  |
+| SOAR Framework | v3.0.0 or later | Required for Asset module |
+| Vulnerability Management | v2.1.0 or later | Required for CVE module |
+| OT - Vulnerability Management | v2.0.0 or later | Required for ICS Advisory module |
 
 
 
