@@ -52,7 +52,6 @@
                             "\/api\/3\/tags\/otbase-inventory"
                         ]
                     },
-                    "assets": "{{vars.parentData['@id']}}",
                     "severity": "{{vars.item.severity | resolveRange(vars.severity_map)}}",
                     "__replace": "true",
                     "ePSSScore": "{{vars.item.baseScore}}",
@@ -63,7 +62,7 @@
                     "identifierSource": "OTbase Inventory",
                     "knownToBeUsedInRansomwareCampaigns": "\/api\/3\/picklists\/8cf9bbd1-e156-4b9b-84de-af75c445bd75"
                 },
-                "operation": "Overwrite",
+                "operation": "Append",
                 "collection": "\/api\/3\/upsert\/c_v_es",
                 "__recommend": [],
                 "fieldOperation": {
@@ -99,6 +98,20 @@
         },
         {
             "@type": "WorkflowStep",
+            "name": "Get Created CVEs ID",
+            "description": null,
+            "arguments": {
+                "cve_ids": "{{vars.steps.Create_CVEs | json_query('[*][\"@id\"]') | sum(start=[])}}"
+            },
+            "status": null,
+            "top": "570",
+            "left": "125",
+            "stepType": "\/api\/3\/workflow_step_types\/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+            "group": null,
+            "uuid": "031722c7-e60e-41d8-9760-aa54eeb7887b"
+        },
+        {
+            "@type": "WorkflowStep",
             "name": "If Vulnerabilities are Present",
             "description": null,
             "arguments": {
@@ -124,6 +137,32 @@
             "stepType": "\/api\/3\/workflow_step_types\/12254cf5-5db7-4b1a-8cb1-3af081924b28",
             "group": null,
             "uuid": "d8d8ad75-01c7-4cbc-a024-11b9e49594f7"
+        },
+        {
+            "@type": "WorkflowStep",
+            "name": "Link Assets with CVEs",
+            "description": null,
+            "arguments": {
+                "resource": {
+                    "__link": {
+                        "cVEs": "{{vars.cve_ids}}"
+                    }
+                },
+                "operation": "Append",
+                "collection": "{{vars.parentData['@id']}}",
+                "__recommend": [],
+                "collectionType": "\/api\/3\/assets",
+                "fieldOperation": {
+                    "protocol": "Append"
+                },
+                "step_variables": []
+            },
+            "status": null,
+            "top": "705",
+            "left": "125",
+            "stepType": "\/api\/3\/workflow_step_types\/b593663d-7d13-40ce-a3a3-96dece928722",
+            "group": null,
+            "uuid": "29e6cd35-8163-4e3e-9300-fa41048d72fd"
         },
         {
             "@type": "WorkflowStep",
@@ -189,13 +228,33 @@
         },
         {
             "@type": "WorkflowRoute",
+            "name": "Create CVEs -> Get Created CVEs ID",
+            "targetStep": "\/api\/3\/workflow_steps\/031722c7-e60e-41d8-9760-aa54eeb7887b",
+            "sourceStep": "\/api\/3\/workflow_steps\/f8a3e0c1-2c70-4e8d-863c-be6f8b5abea7",
+            "label": null,
+            "isExecuted": false,
+            "group": null,
+            "uuid": "36d6f1e2-e72b-497c-80c1-ce3e0ddc5344"
+        },
+        {
+            "@type": "WorkflowRoute",
+            "name": "Get Created CVEs ID -> Link Assets with CVEs",
+            "targetStep": "\/api\/3\/workflow_steps\/29e6cd35-8163-4e3e-9300-fa41048d72fd",
+            "sourceStep": "\/api\/3\/workflow_steps\/031722c7-e60e-41d8-9760-aa54eeb7887b",
+            "label": null,
+            "isExecuted": false,
+            "group": null,
+            "uuid": "c93f1f51-135b-4e8f-bcee-a0a02f9fa7b7"
+        },
+        {
+            "@type": "WorkflowRoute",
             "name": "If Vulnerabilities are Present -> Create CVEs",
             "targetStep": "\/api\/3\/workflow_steps\/f8a3e0c1-2c70-4e8d-863c-be6f8b5abea7",
             "sourceStep": "\/api\/3\/workflow_steps\/d8d8ad75-01c7-4cbc-a024-11b9e49594f7",
             "label": "Yes",
             "isExecuted": false,
             "group": null,
-            "uuid": "40c9f96d-faaf-4244-beac-1d360a3e2b77"
+            "uuid": "aa840098-ce21-4f34-8e33-890b67ab9b8c"
         },
         {
             "@type": "WorkflowRoute",
@@ -224,5 +283,8 @@
     "owners": [],
     "isPrivate": false,
     "deletedAt": null,
-    "recordTags": []
+    "recordTags": [
+        "otbase-inventory",
+        "PostCreate"
+    ]
 }
