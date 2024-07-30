@@ -7,18 +7,6 @@
     "label": "OTbase Inventory",
     "dependencies": [
         {
-            "name": "sOARFramework",
-            "type": "solutionpack",
-            "label": "SOAR Framework",
-            "minVersion": null
-        },
-        {
-            "name": "vulnerabilityManagement",
-            "type": "solutionpack",
-            "label": "Vulnerability Management",
-            "minVersion": null
-        },
-        {
             "name": "oT-VulnerabilityManagement",
             "type": "solutionpack",
             "label": "OT - Vulnerability Management",
