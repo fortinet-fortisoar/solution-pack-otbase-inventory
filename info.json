@@ -1,0 +1,44 @@
+{
+    "name": "oTbaseInventory",
+    "version": "1.0.0",
+    "fsrMinCompatibility": "7.4.0",
+    "type": "solutionpack",
+    "local": true,
+    "label": "OTbase Inventory",
+    "dependencies": [
+        {
+            "name": "oT-VulnerabilityManagement",
+            "type": "solutionpack",
+            "label": "OT - Vulnerability Management",
+            "minVersion": null
+        }
+    ],
+    "prerequisite": null,
+    "publisher": "Fortinet",
+    "certified": "true",
+    "description": "The OTbase Inventory Solution Pack is used to create and manage vulnerabilities found in the devices of OTbase Inventory.",
+    "help": "https://github.com/fortinet-fortisoar/solution-pack-otbase-inventory/blob/release/1.0.0/README.md",
+    "category": [
+        "OT & IoT Security"
+    ],
+    "supportInfo": null,
+    "iconLarge": "fsr-icon-large.png",
+    "postInstallConfig": null,
+    "recordTags": [
+        "otbase-inventory"
+    ],
+    "date": "2024-07-29T08:43:12+00:00",
+    "contents": {
+        "playbooks": [
+            {
+                "name": "02 - Use Case - OTbase Inventory"
+            }
+        ],
+        "connectors": [
+            {
+                "name": "OTbase Inventory",
+                "apiName": "otbase-inventory"
+            }
+        ]
+    }
+}
