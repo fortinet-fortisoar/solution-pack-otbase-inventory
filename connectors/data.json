@@ -1,0 +1,15 @@
+[
+    {
+        "name": "otbase-inventory",
+        "label": "OTbase Inventory",
+        "category": [
+            "OT & IoT Security"
+        ],
+        "description": "Enterprise-grade OT asset management software. OTbase is the gold standard for large scale OT asset inventories. It inventories OT devices from PLCs over network switches to sensors and actuators and integrates nicely with your existing tools and platforms.",
+        "publisher": "Fortinet",
+        "operation_roles": [],
+        "configurations": [],
+        "dataImports": [],
+        "install_mode": "rpm"
+    }
+]

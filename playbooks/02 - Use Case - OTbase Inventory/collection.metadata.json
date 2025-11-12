@@ -1,0 +1,13 @@
+{
+    "@context": "\/api\/3\/contexts\/WorkflowCollection",
+    "@type": "WorkflowCollection",
+    "name": "02 - Use Case - OTbase Inventory",
+    "description": "",
+    "visible": true,
+    "image": null,
+    "uuid": "8dbc991d-05bb-45cd-9221-1271f9c06642",
+    "deletedAt": null,
+    "recordTags": [
+        "otbase-inventory"
+    ]
+}
